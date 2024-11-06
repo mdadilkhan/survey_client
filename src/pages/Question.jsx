@@ -4,8 +4,6 @@ import Header from "../components/Header";
 import axios from "axios";
 import { API_URL } from "../constant/APIConstant";
 import { useSelector,useDispatch } from "react-redux";
-import { userDetails } from "../store/slices/userSlices";
-
 function Quiz() {
   const { questionId } = useParams(); 
   const [currentQuestion, setCurrentQuestion] = useState(null);
@@ -13,7 +11,7 @@ function Quiz() {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const userDetails = useSelector((state) => state.userDetails.currentUser);
+  const userdetails = useSelector((state) => state.userDetails.currentUser);
 
   const getQuestionById = async (id) => {
     try {
@@ -31,7 +29,7 @@ function Quiz() {
     
     try {
       await axios.post(`${API_URL}/question/storeAnswerById`, {
-        userId:userDetails.id,
+        userId:userdetails.id,
         questionId,
         optionSelected: selectedOptions, // Send selected options for the current question
       }).then((res)=>{
@@ -40,8 +38,8 @@ function Quiz() {
                 console.log(id,"kdfslafjalsd")
             navigate(`question/${id+1}`)}
             else{
-                dispatch(userDetails(null));
-                 navigate('/thankyou')
+
+              navigate('/thankyou')
             }
 
         }
