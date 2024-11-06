@@ -24,6 +24,7 @@ function App() {
         <Toaster position="top-center" reverseOrder={false} />
         <Routes>
           <Route path="*" element={<Landing />} />
+          <Route path="/" element={<Landing />} />
           <Route path="/register" element={<RegisterForm />} />
           <Route element={<ProtectedRoute />}>
             <Route path="/question/:questionId" element={<Quiz />} />
