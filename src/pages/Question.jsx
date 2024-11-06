@@ -110,7 +110,7 @@ function Quiz() {
               <h2>{currentQuestion?.questionText}</h2>
             </div>
             <p className="font-nunito text-[1.2rem] sm:text-[1.8rem] mb-[2rem] font-medium flex justify-end text-[#7D748C] capitalize">
-              (Select {currentQuestion?.selectionType === "multi" ? "multiple options" : "one option"})
+              (Select {currentQuestion?.selectionType === "multi" ? "four options" : "one option"})
             </p>
           </div>
           <div
