@@ -32,63 +32,62 @@ input[type="radio"]:checked+.checkbox-custom::after {
   background-color: #9C81CC;
   /* Purple color */
 }
-
 :where(.css-dev-only-do-not-override-5wsri9).ant-steps.ant-steps-dot .ant-steps-item-tail,
 :where(.css-dev-only-do-not-override-5wsri9).ant-steps.ant-steps-dot.ant-steps-small .ant-steps-item-tail {
-  top: 12.5px;
-  width: 100%;
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-inline: 84px 0;
-  padding: 0;
+  top: 12.5px !important;
+  width: 100% !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  margin-inline: 84px 0 !important;
+  padding: 0 !important;
 }
 
 :where(.css-dev-only-do-not-override-5wsri9).ant-steps.ant-steps-label-vertical .ant-steps-item-content {
-  display: block;
-  width: 112px;
-  margin-top: 20px;
+  display: block !important;
+  width: 112px !important;
+  margin-top: 20px !important;
   margin-left: 25px !important;
-  text-align: center;
+  text-align: center !important;
 }
 
-:where(.css-dev-only-do-not-override-5wsri9).ant-steps .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-tail::after {
+:where(.css-dev-only-do-not-override-5wsri9).ant-steps .ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-tail::after {
   background-color: #9C81CC !important;
 }
 
 :where(.css-dev-only-do-not-override-5wsri9).ant-steps {
-  width: 60%;
-  margin: auto;
+  width: 60% !important;
+  margin: auto !important;
 }
 
 @media screen and (max-width: 480px) {
   .checkbox-custom {
-    width: 4rem;
+    width: 4rem !important;
   }
 
   :where(.css-dev-only-do-not-override-5wsri9).ant-steps.ant-steps-vertical {
-    flex-direction: row;
+    flex-direction: row !important;
   }
 
   .ant-steps-item-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 16px !important;
   }
 
   .ant-steps {
-    width: 250px;
+    width: 250px !important;
   }
 
-  :where(.css-dev-only-do-not-override-5wsri9).ant-steps.ant-steps-vertical>.ant-steps-item>.ant-steps-item-container>.ant-steps-item-tail::after {
-    width: 121px;
-    height: 2px;
+  :where(.css-dev-only-do-not-override-5wsri9).ant-steps.ant-steps-vertical > .ant-steps-item > .ant-steps-item-container > .ant-steps-item-tail::after {
+    width: 121px !important;
+    height: 2px !important;
   }
 
-  :where(.css-dev-only-do-not-override-5wsri9).ant-steps.ant-steps-vertical.ant-steps-dot .ant-steps-item>.ant-steps-item-container>.ant-steps-item-tail {
-    top: 10px;
-    inset-inline-start: 60px;
-    margin: 0;
-    padding: 16px 0 8px;
+  :where(.css-dev-only-do-not-override-5wsri9).ant-steps.ant-steps-vertical.ant-steps-dot .ant-steps-item > .ant-steps-item-container > .ant-steps-item-tail {
+    top: 10px !important;
+    inset-inline-start: 60px !important;
+    margin: 0 !important;
+    padding: 16px 0 8px !important;
   }
 }
