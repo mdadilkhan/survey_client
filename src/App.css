@@ -59,7 +59,7 @@ input[type="radio"]:checked+.checkbox-custom::after {
   margin: auto !important;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 520px) {
   .checkbox-custom {
     width: 4rem !important;
   }
