@@ -9,12 +9,8 @@ const Thankyou = () => {
   return (
     <>
       <Header />
-      <div className="mt-[5rem]">
-      <Stepper current={2}/>
-      </div>
-
-      <div className="bg-white w-full h-[80rem]  flex justify-center items-center mt-200px">
-        <div className="flex  flex-col justify-center items-center  ">
+      <div className="bg-white w-full h-[85vh] flex justify-center items-center">
+        <div className="flex flex-col justify-center items-center ">
           <img className="w-[15rem] h-[15rem]" src={Frame} />
           <p className="flex flex-col justify-center items-center text-[1.8rem] font-nunito font-bold">
             Thank You for time

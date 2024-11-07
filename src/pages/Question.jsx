@@ -103,7 +103,7 @@ function Quiz() {
   return (
     <>
       <Header />
-      <div className="mt-[5rem]">
+      <div className="mt-[2rem]">
       <Stepper current={1}/>
       </div>
       <div className="flex flex-col justify-center items-center bg-[#F8F8F8] p-8 rounded-[2rem] w-[100%] mx-auto">
@@ -119,19 +119,19 @@ function Quiz() {
           </div>
           <div
             className={`w-full flex flex-col gap-8 ${
-              currentQuestion?.selectionType === "multi" ? "lg:grid lg:grid-cols-3 lg:gap-4" : "space-y-4"
+              currentQuestion?.selectionType === "multi" ? "lg:grid lg:grid-cols-2 lg:gap-4" : "space-y-4"
             }`}
           >
             {currentQuestion?.options?.map((option, index) => (
               <label
                 key={index}
-                className={`flex items-center justify-between px-[4rem] flex-row-reverse w-full h-[10rem] border border-[#D5D2D9] rounded-[1rem] cursor-pointer ${
+                className={`flex items-center justify-between px-[3rem] flex-row-reverse w-full h-full py-[1rem] sm:h-[8rem] border border-[#D5D2D9] rounded-[1rem] cursor-pointer ${
                   (
                     currentQuestion?.selectionType === "multi"
                       ? selectedOptions.includes(option?.optionId)
                       : selectedOptions[0] === option?.optionId
                   )
-                    ? "bg-purple-100"
+                    ? "bg-purple-400"
                     : ""
                 }`}
               >

@@ -32,4 +32,34 @@
     background-color: #9C81CC; /* Purple color */
   }
 
-  
+  :where(.css-dev-only-do-not-override-5wsri9).ant-steps.ant-steps-dot .ant-steps-item-tail, :where(.css-dev-only-do-not-override-5wsri9).ant-steps.ant-steps-dot.ant-steps-small .ant-steps-item-tail {
+    top: 12.5px;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-inline: 84px 0;
+    padding: 0;
+}
+
+:where(.css-dev-only-do-not-override-5wsri9).ant-steps.ant-steps-label-vertical .ant-steps-item-content {
+  display: block;
+  width: 112px;
+  margin-top: 20px;
+  margin-left: 25px !important;
+  text-align: center;
+}
+
+:where(.css-dev-only-do-not-override-5wsri9).ant-steps .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-tail::after {
+  background-color: #9C81CC !important;
+}
+
+:where(.css-dev-only-do-not-override-5wsri9).ant-steps{
+  width: 60%;
+  margin: auto;
+}
+
+@media screen and (max-width: 480px) {
+  .checkbox-custom {
+    width: 4rem;
+  }
+}

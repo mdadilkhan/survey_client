@@ -66,7 +66,7 @@ const RegisterForm = () => {
     <>
      
       <Header />
-      <div className="mt-[5rem]">
+      <div className="mt-[2rem]">
       <Stepper current={0}/>
       </div>
       <div className="flex justify-center items-center py-10 w-full bg-[#F8F8F8]">
@@ -161,8 +161,8 @@ const RegisterForm = () => {
                   Select Course
                 </option>
                 {subcategoryOptions.map((option) => (
-                  <option key={option} value={option}>
-                    {option.toUpperCase()}
+                  <option key={option} value={option} className="capitalize">
+                    {option}
                   </option>
                 ))}
               </select>

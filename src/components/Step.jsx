@@ -11,8 +11,8 @@ export const customDot = (dot, { status, index }) => (
     }
   >
     <div
-      className={`flex justify-center items-center w-[3rem] h-[3rem] rounded-full ${
-        status === 'finish' ? 'bg-[#614298]' : 'bg-gray-300'
+      className={`flex justify-center items-center w-[3rem] h-[3rem] rounded-full font-nunito ${
+        status === 'finish' ? 'bg-[#9C81CC]' : 'bg-gray-300'
       } text-white font-bold text-lg px-4` } 
     >
       {index + 1}
@@ -27,8 +27,7 @@ export const Stepper = ({ current }) => (
     className="custom-stepper"
     items={[
       { title: 'Register' },
-      { title: 'Take Survey' },
-      { title: 'Thank You' },
+      { title: 'Take Survey' }
     ]}
   />
 );

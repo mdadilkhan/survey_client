@@ -44,11 +44,6 @@ const Header = () => {
         <img src={Logo} alt="Logo" />
       </div>
 
-      {/* Take Survey Button */}
-      <button className="px-4 py-2 rounded bg-purple-100 text-purple-700 font-medium">
-        Take Survey
-      </button>
-
       {/* User Profile */}
       <div className="flex items-center space-x-2 mr-[0rem] sm:mr-[4rem]">
         <Popover content={popoverContent} trigger="click">
