@@ -56,28 +56,96 @@ background: #C6B5E2;
 background: #C6B5E2 !important;
 }
 
-/* global.css */
+.carousel-container {
+  padding: 0 1.5rem;
+}
 
-@layer utilities {
-  /* Set thickness and base color for progress lines */
-  .custom-stepper .ant-steps-item-container::before {
-    height: 6px; /* Adjust thickness */
-    background-color: #d1d5db; /* Gray for incomplete steps */
+.checkbox-custom {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.25rem;
+  border: 2px solid #d5d2d9;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox-custom::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1rem;
+  height: 1rem;
+  background-color: transparent;
+  border-radius: 0.15rem;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.2s ease;
+}
+
+input[type="checkbox"]:checked+.checkbox-custom::after,
+input[type="radio"]:checked+.checkbox-custom::after {
+  background-color: #9C81CC;
+}
+
+.ant-steps.ant-steps-dot .ant-steps-item-tail,
+.ant-steps.ant-steps-dot.ant-steps-small .ant-steps-item-tail {
+  top: 12.5px !important;
+  width: 100% !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  margin-inline: 84px 0 !important;
+  padding: 0 !important;
+}
+
+.ant-steps.ant-steps-label-vertical .ant-steps-item-content {
+  display: block !important;
+  width: 112px !important;
+  margin-top: 20px !important;
+  margin-left: 25px !important;
+  text-align: center !important;
+}
+
+.ant-steps .ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-tail::after {
+  background-color: #9C81CC !important;
+}
+
+.ant-steps {
+  width: 60% !important;
+  margin: auto !important;
+}
+
+@media screen and (max-width: 520px) {
+  .checkbox-custom {
+    width: 4rem !important;
   }
 
-  /* Completed steps line color */
-  .custom-stepper .ant-steps-item-finish .ant-steps-item-container::before {
-    background-color: #614298; /* Purple for completed steps */
+  .ant-steps.ant-steps-vertical {
+    flex-direction: row !important;
   }
 
-  /* Make the line color visible for active step */
-  .custom-stepper .ant-steps-item-process .ant-steps-item-container::before {
-    background-color: #614298;
+  .ant-steps-item-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 16px !important;
   }
 
-  /* Customize step titles */
-  .custom-stepper .ant-steps-item-title {
-    color: #614298;
-    font-weight: 600;
+  .ant-steps {
+    width: 250px !important;
+  }
+
+  .ant-steps.ant-steps-vertical > .ant-steps-item > .ant-steps-item-container > .ant-steps-item-tail::after {
+    width: 121px !important;
+    height: 2px !important;
+  }
+
+  .ant-steps.ant-steps-vertical.ant-steps-dot .ant-steps-item > .ant-steps-item-container > .ant-steps-item-tail {
+    top: 10px !important;
+    inset-inline-start: 60px !important;
+    margin: 0 !important;
+    padding: 16px 0 8px !important;
   }
 }
+
