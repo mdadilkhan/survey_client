@@ -55,3 +55,29 @@ background: #C6B5E2;
 .react-multi-carousel-dot.react-multi-carousel-dot--active button{
 background: #C6B5E2 !important;
 }
+
+/* global.css */
+
+@layer utilities {
+  /* Set thickness and base color for progress lines */
+  .custom-stepper .ant-steps-item-container::before {
+    height: 6px; /* Adjust thickness */
+    background-color: #d1d5db; /* Gray for incomplete steps */
+  }
+
+  /* Completed steps line color */
+  .custom-stepper .ant-steps-item-finish .ant-steps-item-container::before {
+    background-color: #614298; /* Purple for completed steps */
+  }
+
+  /* Make the line color visible for active step */
+  .custom-stepper .ant-steps-item-process .ant-steps-item-container::before {
+    background-color: #614298;
+  }
+
+  /* Customize step titles */
+  .custom-stepper .ant-steps-item-title {
+    color: #614298;
+    font-weight: 600;
+  }
+}

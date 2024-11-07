@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import axios from "axios";
 import { API_URL } from "../constant/APIConstant";
 import { useSelector,useDispatch } from "react-redux";
+import { Stepper } from "../components/Step";
 function Quiz() {
   const { questionId } = useParams(); 
   const [currentQuestion, setCurrentQuestion] = useState(null);
@@ -102,6 +103,9 @@ function Quiz() {
   return (
     <>
       <Header />
+      <div className="mt-[5rem]">
+      <Stepper current={1}/>
+      </div>
       <div className="flex flex-col justify-center items-center bg-[#F8F8F8] p-8 rounded-[2rem] w-[100%] mx-auto">
         <div className="flex flex-col justify-between bg-white px-[2rem] sm:px-[4rem] py-[2rem] rounded-[2rem] w-[99%] sm:w-[70%] min-h-[80vh]">
           <div className="font-nunito text-[1.6rem] sm:text-[2.4rem] font-bold">

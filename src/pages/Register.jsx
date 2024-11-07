@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { userDetails } from "../store/slices/userSlices";
 import { useDispatch } from "react-redux";
+import { Stepper } from "../components/Step";
 const courseCategories = {
   undergraduate: ["1st year", "2nd year", "3rd year", "4th year"],
   postgraduate: ["1st year", "2nd year"],
@@ -63,7 +64,11 @@ const RegisterForm = () => {
 
   return (
     <>
+     
       <Header />
+      <div className="mt-[5rem]">
+      <Stepper current={0}/>
+      </div>
       <div className="flex justify-center items-center py-10 w-full bg-[#F8F8F8]">
         <form
           onSubmit={handleSubmit}

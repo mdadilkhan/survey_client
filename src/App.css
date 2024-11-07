@@ -31,3 +31,5 @@
   input[type="radio"]:checked + .checkbox-custom::after {
     background-color: #9C81CC; /* Purple color */
   }
+
+  

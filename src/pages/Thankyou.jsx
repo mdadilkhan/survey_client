@@ -2,12 +2,16 @@ import Frame from "../assets/Frame.svg";
 import Header from "../components/Header";
 import { useDispatch } from "react-redux";
 import { userDetails } from "../store/slices/userSlices";
+import { Stepper } from "../components/Step";
 const Thankyou = () => {
   const dispatch = useDispatch();
 
   return (
     <>
       <Header />
+      <div className="mt-[5rem]">
+      <Stepper current={2}/>
+      </div>
 
       <div className="bg-white w-full h-[80rem]  flex justify-center items-center mt-200px">
         <div className="flex  flex-col justify-center items-center  ">
