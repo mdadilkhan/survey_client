@@ -7,13 +7,17 @@ import { useNavigate } from "react-router-dom";
 import { userDetails } from "../store/slices/userSlices";
 import { useDispatch } from "react-redux";
 import { Stepper } from "../components/Step";
+import { useLocation } from "react-router-dom";
 const courseCategories = {
   undergraduate: ["1st year", "2nd year", "3rd year", "4th year"],
   postgraduate: ["1st year", "2nd year"],
 };
-const universityList = ["JMI", "JNU", "AMU"];
+const universityList = ["Christ University", "Jindal University", "GBU"];
 const subcategoryOptions = ["undergraduate", "postgraduate"];
 const RegisterForm = () => {
+  const location =useLocation();
+  console.log(location.pathname);
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -49,7 +53,7 @@ const RegisterForm = () => {
             duration: 3000,
             style: { fontWeight: "bold", fontSize: "14px" },
           });
-          navigate("/question/1");
+          {location.pathname=="/workshop/register"?navigate("/workshop/payment"):navigate("/question/1")}
         }
       })
       .catch((err) => {
@@ -198,6 +202,7 @@ const RegisterForm = () => {
           >
             Register
           </button>
+          
         </form>
       </div>
     </>

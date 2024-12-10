@@ -6,6 +6,9 @@ import Quiz from './pages/Question.jsx';
 import Landing from './pages/Landing.jsx';
 import Thankyou from './pages/Thankyou.jsx';
 import { useSelector } from 'react-redux';
+import Time from './pages/Times.jsx';
+import PayementDetails from './pages/Payment.jsx';
+import ThankyouWorkshop from './pages/ThankYouWorkshop.jsx';
 
 // ProtectedRoute component
 const ProtectedRoute = () => {
@@ -26,10 +29,14 @@ function App() {
           <Route path="*" element={<Landing />} />
           <Route path="/" element={<Landing />} />
           <Route path="/register" element={<RegisterForm />} />
+          <Route path="/workshop/register" element={<RegisterForm />} />
           <Route element={<ProtectedRoute />}>
             <Route path="/question/:questionId" element={<Quiz />} />
             <Route path="/thankyou" element={<Thankyou />} />
+            <Route path="/workshop/thankyou" element={<ThankyouWorkshop />} />
+            <Route path="/workshop/payment" element={<PayementDetails/>}/>
           </Route>
+          
         </Routes>
       </BrowserRouter>
     </>
