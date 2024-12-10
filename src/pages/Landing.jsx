@@ -1,55 +1,85 @@
-import React from 'react';
-import temp from "../assets/Landing.svg"
-import Header from '../components/Header';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import Header from "../components/Header";
+import FilteredModal from "./Times"; // Import the modal component
+import { timeAtom } from "../recoil/timeatom";
+
 function CareerSurvey() {
-    const navigate=useNavigate();
+  const navigate = useNavigate();
+  const name = useRecoilValue(timeAtom);
+  console.log(name);
+
+  const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
+
   return (
     <>
-    <Header/>
-    <div className='flex justify-center items-center'>
+      <Header />
+      <div className="flex justify-center items-center">
+        <div
+          style={{
+            background: `conic-gradient(from 90deg at 50% 50%, #FFF 208.5344123840332deg, #F4EDFF 311.6137218475342deg)`,
+          }}
+          className="flex flex-col w-full sm:flex-col h-full py-[10rem] gap-[8rem] space-y-4"
+        >
+          {/* Left Section */}
+          <div className="flex flex-col mb-6 text-center sm:text-center justify-center items-center">
+            <h2 className="font-nunito text-[3.2rem] text-[#614298] font-bold text-wrap sm:w-[50%] mb-6">
+              Understanding Careers in Psychology A Comprehensive Survey
+            </h2>
+            <p className="text-[#515151] font-nunito w-[90%] font-medium sm:text-[1.8rem] text-[1.4rem] sm:w-[70%]">
+              This survey aims to explore the diverse career opportunities
+              within the field of psychology. Whether you're a student,
+              professional, or someone considering psychology as a career path,
+              this survey provides insights into various roles, specializations,
+              and career growth opportunities in psychology.
+            </p>
+          </div>
+          <div className="flex justify-center sm:flex-row flex-col  sm:gap-[5rem] mt-[5rem] gap-[3rem] pl-7 ">
+            {/* Survey Registration Section */}
+            <div className="flex flex-col justify-center items-center sm:w-[25%] w-[95%] pl-7 h-auto space-y-5 p-4  border rounded-3xl">
+              <h2 className="font-nunito text-[2.4rem] w-[80%] text-center">
+              Take the Career Survey
+              </h2>
+              <p className="w-[80%] text-center text-wrap justify-center font-nunito text-[1.2rem]">
+                Sign up today to join our upcoming workshop and boost your
+                skills!
+              </p>
+              <button
+                className="bg-[#9C81CC] text-white ml-8 font-semibold font-nunito text-[1.6rem] py-4 px-6 rounded-xl justify-center items-center sm:w-[22rem] w-[80%] h-[5rem] transition duration-300 flex"
+                onClick={() => {
+                  navigate(`/question/${1}`);
+                }}
+              >
+                Take the Survey →
+              </button>
+            </div>
 
-    <div className="flex flex-col-reverse  w-full   sm:w-[70%] mt-[10rem] sm:flex-row  px-[3rem] sm:px-0 gap-[8rem] ">
-      {/* Left Section */}
-      <div className="flex flex-col items-start sm:w-1/2  w-full space-y-4">
-
-      <div className=' flex flex-col mb-6 text-center sm:text-left'> 
-        <h1 className="text-[#2F2B36] sm:text-[5rem] font-bold font-nunito gap-[0.05rem] flex flex-col text-[3rem]">
-          CAREER IN <span className="text-[#9C81CC] ">SESSION SURVEY</span>
-        </h1>
-
-        <div className=" sm:w-[40%] mt-8 lg:mt-0 flex sm:hidden justify-end w-[95%] mb-[2rem]">
-        <img
-           // Replace with the actual image URL
-           src={temp}
-          alt="Career Counseling Illustration"
-          className="w-full h-auto "
-        />
-      </div>
-
-        <p className="text-[#515151]  font-nunito w-full   font-medium sm:text-[1.8rem] text-[1.4rem] sm:w-[90%]">
-        Discover your strengths and passions with our Career Counselling Test. 
-        Get personalized insights to guide you toward a successful career path and make informed decisions about your future. 
-        Let us help you find the direction that fits your potential.</p>
+            {/* Workshop Registration Section */}
+            <div className="flex flex-col justify-center items-center sm:w-[25%] w-[95%] pl-7 h-auto space-y-5 p-4 border rounded-3xl">
+              <h2 className="font-nunito text-[2.4rem] w-[80%] text-center">
+                Register for Workshop
+              </h2>
+              <p className="w-[80%] text-center text-wrap justify-center font-nunito text-[1.2rem]">
+                Sign up today to join our upcoming workshop and boost your
+                skills!
+              </p>
+              <button
+                className="bg-[#9C81CC] text-white ml-8 font-semibold font-nunito text-[1.6rem] py-4 px-6 rounded-xl justify-center items-center sm:w-[22rem] w-[80%] h-[5rem] transition duration-300 flex"
+                onClick={() => setIsModalOpen(true)}
+              >
+                Register for Workshop
+              </button>
+            </div>
+          </div>
         </div>
-        <button className="bg-[#9C81CC] text-white font-semibold font-nunito text-[1.6rem] py-4 px-6 rounded-xl  justify-center items-center sm:w-[22rem]  w-full h-[5rem] transition duration-300 flex"
-           onClick={()=>{navigate(`/question/${1}`)}}>
-          Take the Survey →
-        </button>
       </div>
 
-      {/* Right Section */}
-      <div className=" sm:w-[40%] mt-8 lg:mt-0 hidden sm:flex justify-end w-[95%] mb-[2rem]">
-        <img
-           // Replace with the actual image URL
-           src={temp}
-          alt="Career Counseling Illustration"
-          className="w-full h-auto "
-        />
-      </div>
-     
-      </div>
-    </div>
+      {/* Render the FilteredModal */}
+      <FilteredModal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+      />
     </>
   );
 }
