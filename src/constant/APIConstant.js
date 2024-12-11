@@ -1,6 +1,5 @@
- export const API_URL = "http://localhost:5003/api"
+ export const API_URL = "http://localhost:5001/api"
 // export const API_URL = "https://survey.sageturtle.in/api";
-
 export const getLoggedInUserDetails = () => {
   const storedData = localStorage.getItem("persist:root");
   if (storedData) {
@@ -70,6 +69,8 @@ export const UnderstandingInternshipSelectionforCareerGrowth={
       time: slot.time,
       mode: slot.mode,
       isAvailable:slot?.isAvailable,
-      info:slot?.info
+      info:slot?.info,
+      dates:slot.date,
+      slot:slot.time
     }));
 };

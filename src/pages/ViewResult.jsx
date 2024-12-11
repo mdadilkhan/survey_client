@@ -13,6 +13,7 @@ import {
 import ResultBg from "../assets/ResultBg.svg";
 import { Link } from "react-router-dom";
 import MoveRight from "../assets/MoveRight.svg";
+import FilteredModal from "./Times";
 const ViewResult = () => {
   const currentUser = useSelector((state) => state.userDetails.currentUser);
   const [resultData, setResultData] = useState({
@@ -21,7 +22,7 @@ const ViewResult = () => {
     ClarityAboutSpecializationChoices: null,
     UnderstandingInternshipSelectionforCareerGrowth: null,
   });
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const getAwarenessofCareerOpportunities = async () => {
     try {
       const res = await axios.get(
@@ -145,13 +146,17 @@ const ViewResult = () => {
         </div>
 
 
-          <Link to="/">
-            <button className=" bg-br-1 py-6 px-10 rounded-[50px] text-white flex justify-center items-center text-[1.4rem] font-nunito font-bold gap-2">
+            <button className=" bg-br-1 py-6 px-10 rounded-[50px] text-white flex justify-center items-center text-[1.4rem] font-nunito font-bold gap-2"
+            onClick={() => setIsModalOpen(true)}>
               Register for Workshop
               <img src={MoveRight} alt="" />
             </button>
-          </Link>
       </div>
+
+      <FilteredModal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+      />
     </>
   );
 };
