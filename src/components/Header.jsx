@@ -38,7 +38,7 @@ const Header = () => {
   );
 
   return (
-    <div className="flex justify-between items-center p-4 sm:py-6 sm:h-[7rem] bg-b-1">
+    <div className="flex justify-between items-center p-4 sm:py-6 sm:h-[7rem] bg-b-1 ">
       {/* Logo */}
       <div className="w-[10rem] h-[5rem] sm:w-[25rem] sm:h-[5rem] flex justify-center items-center cursor-pointer">
         <img src={Logo} alt="Logo" />
