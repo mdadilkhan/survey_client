@@ -48,10 +48,11 @@ const januaryAppointments = filterAppointmentsByMonth(allslots, "Jan");
   
       if (details?.id) {
         const data = {
+          // userId, slot, mode, date
           userId: details.id,
           mode: filteredMode,
-          slot: appointment?.SelectedSlot,
-          date: appointment?.date,
+          slot: appointment?.slot,
+          date: appointment?.dates,
         };
   
         // Send booking data to the server

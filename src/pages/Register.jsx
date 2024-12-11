@@ -159,7 +159,7 @@ const RegisterForm = () => {
                 value={formData.course}
                 onChange={handleChange}
                 required
-                className="border border-br-1 p-6 rounded-[10px] w-[100%] h-[6rem] text-[1.8rem] font-normal font-nunito"
+                className="border border-br-1 p-6 rounded-[10px] w-[100%] h-[6rem] text-[1.8rem] font-normal font-nunito capitalize"
               >
                 <option value="" disabled>
                   Select Course
