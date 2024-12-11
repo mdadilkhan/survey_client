@@ -76,7 +76,7 @@ const RazorPay = ({ currentPayementDetails }) => {
                   fontSize: "14px",
                 },
               });
-              navigate("/purchased")
+              navigate("/workshop/thankyou")
             } else {
               toast.error("Payment Verification Failed", {
                 position: "top-center",

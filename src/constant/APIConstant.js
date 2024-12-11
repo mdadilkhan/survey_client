@@ -1,7 +1,6 @@
-//  export const API_URL = "http://localhost:5003/api"
-export const API_URL = "https://survey.sageturtle.in/api";
+ export const API_URL = "http://localhost:5003/api"
+// export const API_URL = "https://survey.sageturtle.in/api";
 
-export const API_URI = "https://practice.sageturtle.in/corporate/";
 export const getLoggedInUserDetails = () => {
   const storedData = localStorage.getItem("persist:root");
   if (storedData) {
