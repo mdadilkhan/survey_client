@@ -74,8 +74,9 @@ const januaryAppointments = filterAppointmentsByMonth(allslots, "Jan");
   };
 
   useEffect(()=>{
-    getSlots();
-   },[])
+    if(isModalOpen){
+    getSlots();}
+   },[isModalOpen])
   return (
     <Modal
     title={
@@ -90,7 +91,7 @@ const januaryAppointments = filterAppointmentsByMonth(allslots, "Jan");
     footer={null}
   >
     {/* Centered Filter Buttons */}
-    <div className='w-[20%] ml-[35rem] h-[0.5rem] bg-[#9C81CC]'/>
+    <div className='sm:w-[20%] w-[50%] sm:ml-[35rem] ml-[5rem] h-[0.5rem] bg-[#9C81CC]'/>
     <div className="flex justify-center items-center h-[10rem]">
       <div className="flex justify-center sm:w-[37%] w-[90%] h-[5rem] gap-4 bg-[#F6F0FF] border rounded-3xl font-nunito">
         <button
@@ -115,20 +116,20 @@ const januaryAppointments = filterAppointmentsByMonth(allslots, "Jan");
     {/* Render December Appointments */}
     <div className="mb-6">
       <h2 className="text-[2.2rem] font-nunito font-semibold text-[#565857] mb-4">December</h2>
-      <div className="flex flex-row gap-8 flex-wrap">
+      <div className="flex flex-row gap-8 flex-wrap ">
         {filteredDecemberAppointments.length > 0 ? (
           filteredDecemberAppointments.map((appointment, index) => (
             <div
               key={index}
-              className={`p-4 sm:w-[30%] w-[45%] border rounded-xl flex flex-wrap justify-center font-nunito text-[3rem] items-center group border-transparent transition duration-300 ease-in-out cursor-pointer ${
+              className={`p-4 sm:w-[30%] w-[45%] border rounded-xl flex flex-wrap  justify-center font-nunito sm:text-[1.4rem] text-[1.2rem] items-center group transition duration-300 ease-in-out cursor-pointer ${
                 appointment?.info === 0
                   ? "border-[#c7c7cc] text-[#c7c7cc] cursor-not-allowed"
                   : appointment?.info === 1
-                  ? "border-[#e08505] text-[#e08505] hover:scale-105 hover:shadow-lg hover:border-[#e08505]"
+                  ? "border-[#e08505] text-[#e08505] hover:scale-105 hover:shadow-lg"
                   : appointment?.info === 2
-                  ? "border-[#34c759] text-[#34c759] hover:scale-105 hover:shadow-lg hover:border-[#34c759]"
-                  : ""
-              }`}              
+                  ? "border-[#34c759] text-[#34c759] hover:scale-105 hover:shadow-lg"
+                  : "border-transparent"
+              }`}             
               onClick={() => {
                 if (appointment?.isAvailable) {
                   handleSelectAppointment(appointment);
@@ -136,8 +137,8 @@ const januaryAppointments = filterAppointmentsByMonth(allslots, "Jan");
               }}
             >
               <div>
-                <p className="text-lg font-semibold">{appointment.date}</p>
-                <p className="text-sm">{appointment.time}</p>
+                <p className="font-semibold">{appointment.date}</p>
+                <p className="">{appointment.time}</p>
               </div>
             </div>
           ))
@@ -155,14 +156,14 @@ const januaryAppointments = filterAppointmentsByMonth(allslots, "Jan");
           filteredJanuaryAppointments.map((appointment, index) => (
             <div
               key={index}
-              className={`p-4 sm:w-[30%] w-[45%] border rounded-xl flex flex-wrap justify-center font-nunito text-[3rem] items-center group border-transparent transition duration-300 ease-in-out cursor-pointer ${
+              className={`p-4 sm:w-[30%] w-[45%] border rounded-xl flex flex-wrap justify-center  font-nunito text-[3rem] items-center group transition duration-300 ease-in-out cursor-pointer ${
                 appointment?.info === 0
                   ? "border-[#c7c7cc] text-[#c7c7cc] cursor-not-allowed"
                   : appointment?.info === 1
-                  ? "border-[#e08505] text-[#e08505] hover:scale-105 hover:shadow-lg hover:border-[#e08505]"
+                  ? "border-[#e08505] text-[#e08505] hover:scale-105 hover:shadow-lg"
                   : appointment?.info === 2
-                  ? "border-[#34c759] text-[#34c759] hover:scale-105 hover:shadow-lg hover:border-[#34c759]"
-                  : ""
+                  ? "border-[#34c759] text-[#34c759] hover:scale-105 hover:shadow-lg"
+                  : "border-transparent"
               }`}
               
               onClick={() => {
@@ -182,7 +183,7 @@ const januaryAppointments = filterAppointmentsByMonth(allslots, "Jan");
         )}
       </div>
     </div>
-    <div className="w-[70%] flex font-nunito justify-end gap-10 mt-[5rem]">
+    <div className="sm:w-[70%] w-full sm:text-[1.8rem] text-[1.2rem]  flex font-nunito justify-end gap-10 mt-[5rem]">
   {/* Filling Fast */}
   <div className="flex items-center gap-2">
     <span className="w-3 h-3 bg-[#e08505] rounded-full"></span>
