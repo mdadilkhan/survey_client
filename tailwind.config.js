@@ -51,6 +51,7 @@ export default {
         // Nunito font family
         nunito: ['Nunito', 'sans-serif'],
       },
+      
     },
   },
   // plugins: [

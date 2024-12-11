@@ -8,7 +8,7 @@ import './index.css';
 import { RecoilRoot } from "recoil";
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  // <StrictMode>
     <RecoilRoot>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
@@ -16,5 +16,5 @@ createRoot(document.getElementById('root')).render(
         </PersistGate>
       </Provider>
     </RecoilRoot>
-  </StrictMode>
+  // </StrictMode>
 );

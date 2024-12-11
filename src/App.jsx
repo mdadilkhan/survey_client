@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 import Time from './pages/Times.jsx';
 import PayementDetails from './pages/Payment.jsx';
 import ThankyouWorkshop from './pages/ThankYouWorkshop.jsx';
-
+import ViewResult from './pages/ViewResult.jsx'
 // ProtectedRoute component
 const ProtectedRoute = () => {
   const userDetails = useSelector((state) => state.userDetails.currentUser);
@@ -35,6 +35,7 @@ function App() {
             <Route path="/thankyou" element={<Thankyou />} />
             <Route path="/workshop/thankyou" element={<ThankyouWorkshop />} />
             <Route path="/workshop/payment" element={<PayementDetails/>}/>
+            <Route path="/workshop/result" element={<ViewResult/>}/>
           </Route>
           
         </Routes>
