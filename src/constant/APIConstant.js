@@ -71,6 +71,7 @@ export const UnderstandingInternshipSelectionforCareerGrowth={
       isAvailable:slot?.isAvailable,
       info:slot?.info,
       dates:slot.date,
-      slot:slot.time
+      slot:slot.time,
+      isLocked:slot?.isLocked
     }));
 };
