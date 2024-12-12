@@ -132,7 +132,9 @@ const januaryAppointments = filterAppointmentsByMonth(allslots, "Jan");
                   : "border-transparent"
               }`}             
               onClick={() => {
-                if (appointment?.isLocked && appointment?.info === 3) {
+                {console.log(appointment?.isLocked,"asdjkflasdkjlk");
+                }
+                if (!appointment?.isLocked) {
                   handleSelectAppointment(appointment);
                 }
               }}
@@ -167,7 +169,11 @@ const januaryAppointments = filterAppointmentsByMonth(allslots, "Jan");
                 : "border-transparent"
             }`}             
             onClick={() => {
-              if (appointment?.isLocked &&  appointment?.info === 3) {
+              {console.log(appointment?.isLocked,"asdjkflasdkjlk");
+              }
+              if (!appointment?.isLocked) {
+                {console.log(!appointment?.isLocked,"kfjadsfjdsa");
+                }
                 handleSelectAppointment(appointment);
               }
             }}
