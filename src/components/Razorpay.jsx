@@ -10,85 +10,99 @@ import { timeAtom } from "../recoil/timeatom";
 const RazorPay = ({ currentPayementDetails }) => {
   let currentUser = useSelector((state) => state.userDetails.currentUser);
   const date = useRecoilValue(timeAtom);
-  console.log(date,"jadhsfjkhads");
   
-   currentUser = {
+  currentUser = {
     ...currentUser,
-    date: date?.selectedSlot?.date,
-    mode:date?.selectedSlot?.mode,
-    slot:date?.selectedSlot?.time
+    date: date?.selectedSlot?.dates,
+    mode: date?.selectedSlot?.mode,
+    slot: date?.selectedSlot?.time,
   };
+  console.log(currentUser,"gejololojsadfjaskd");
+  
+  
   const [paymentStatus, setPaymentStatus] = useState("undefined");
   const navigate = useNavigate();
-  console.log(currentUser);
   
   const config = {
     headers: {
       Authorization: `Bearer ${currentUser.token}`,
     },
   };
-   console.log(config,"in razorpay");
-   
+  
   // Handler for RazorPay checkout
   const checkoutHandler = async () => {
     try {
       // Create order with amount
-      const { data } = await axios.post(
+      const orderResponse = await axios.post(
         `${API_URL}/payment/createOrder`,
         { amount: currentPayementDetails.price },
         config
       );
-      console.log(data);
-      
+  
+      const { data: orderData } = orderResponse;
+  
       // Razorpay options
       const options = {
         key: "rzp_test_IqmS1BltCU4SFU",
-        amount: data.amount,
+        amount: orderData.amount,
         currency: "INR",
         name: "Sage Turtle",
         description: "Test Transaction",
         payment_capture: true,
         image:
           "https://firebasestorage.googleapis.com/v0/b/sage-turtle-website.appspot.com/o/logo.jpeg?alt=media&token=97d30b20-63fb-461e-8063-ca619ffaa7e3",
-        order_id: data.id,
-        handler: async function (response) {
-          const paymentData = {
-            ...currentPayementDetails, // Include current payment details in the request
-            razorpay_order_id: response.razorpay_order_id,
-            razorpay_payment_id: response.razorpay_payment_id,
-            razorpay_signature: response.razorpay_signature,
-          };
-
-          // Verify payment
+        order_id: orderData.id,
+        handler: async (response) => {
           try {
+            const paymentData = {
+              ...currentPayementDetails, // Include current payment details
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+            };
+  
+            // Verify payment
             const verificationResponse = await axios.post(
               `${API_URL}/payment/verifyOrder`,
               paymentData,
               config
             );
-
+  
             if (verificationResponse.status === 200) {
-              toast.success("Payment Successful", {
-                position: "top-center",
-                duration: 3000,
-                style: {
-                  fontWeight: "bold",
-                  fontSize: "14px",
-                },
-              });
-              navigate("/workshop/thankyou")
+              // Booking data
+              const bookingData = {
+                userId: currentUser.id,
+                mode: currentUser.mode,
+                slot: currentUser.slot,
+                date: currentUser.date,
+              };
+  
+              // Book slot
+              const bookingResponse = await axios.post(
+                `${API_URL}/bookslot`,
+                bookingData,
+                config
+              );
+  
+              if (bookingResponse.status === 200) {
+                toast.success("Slot booked successfully!", {
+                  position: "top-center",
+                  duration: 3000,
+                  style: {
+                    fontWeight: "bold",
+                    fontSize: "14px",
+                  },
+                });
+                navigate("/workshop/thankyou");
+              } else {
+                throw new Error(bookingResponse.data.message || "Slot booking failed");
+              }
             } else {
-              toast.error("Payment Verification Failed", {
-                position: "top-center",
-                duration: 3000,
-                style: {
-                  fontWeight: "bold",
-                  fontSize: "14px",
-                },
-              });
+              throw new Error("Payment verification failed");
             }
-          } catch (error) {
-            toast.error("Payment Verification Error", {
+          } catch (err) {
+            console.error("Error during payment verification or booking:", err.message);
+            toast.error(err.message, {
               position: "top-center",
               duration: 3000,
               style: {
@@ -96,13 +110,12 @@ const RazorPay = ({ currentPayementDetails }) => {
                 fontSize: "14px",
               },
             });
-            console.error("Verification Error:", error);
           }
         },
         prefill: {
-          name: currentUser.firstName + currentUser.lastName,        // User's name
-          email: currentUser.email,      // User's email to receive notifications
-          contact: currentUser.phone,    // User's phone number for notifications
+          name: `${currentUser.firstName} ${currentUser.lastName}`, // User's name
+          email: currentUser.email, // User's email
+          contact: currentUser.phone, // User's phone
         },
         notes: {
           address: "Razorpay Corporate Office",
@@ -111,11 +124,12 @@ const RazorPay = ({ currentPayementDetails }) => {
           color: "#614298",
         },
       };
-
+  
       const razor = new window.Razorpay(options);
       razor.open();
     } catch (error) {
-      toast.error("Order Creation Failed", {
+      console.error("Order creation error:", error.message);
+      toast.error("Failed to create order. Please try again.", {
         position: "top-center",
         duration: 3000,
         style: {
@@ -123,9 +137,9 @@ const RazorPay = ({ currentPayementDetails }) => {
           fontSize: "14px",
         },
       });
-      console.error("Order Creation Error:", error);
     }
   };
+  
 
   return (
     <div>
