@@ -3,11 +3,13 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { userDetails } from "../store/slices/userSlices";
 import { Popover } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { LogoutOutlined } from '@ant-design/icons';
 
 const Header = () => {
-
+   const location=useLocation();
+   console.log(location.pathname,"location");
+   
   const dispatch=useDispatch();
   const navigate = useNavigate();
 
@@ -22,9 +24,10 @@ const Header = () => {
   const popoverContent = (
     <div className="flex flex-col items-center justify-start p-4 space-y-2 w-[20rem]">
       <div className="flex gap-[2rem] items-center">
-      <div className="w-[4rem] h-[4rem] flex items-center text-[2rem] justify-center bg-purple-400 text-white font-medium rounded-full cursor-pointer">
-            {currentUser ? currentUser?.name[0] : "X"}
-          </div>
+   <div className="w-[4rem] h-[4rem] flex items-center text-[2rem] justify-center bg-purple-400 text-white font-medium rounded-full cursor-pointer">
+     {currentUser ? currentUser?.name[0] : "X"}
+   </div>
+
       <div className="flex flex-col">
       <h2 className="text-[1.6rem] font-semibold text-black">{currentUser?.name}</h2>
       <p className="text-[1.4rem] text-gray-500">{currentUser?.email}</p>
@@ -47,9 +50,11 @@ const Header = () => {
       {/* User Profile */}
       <div className="flex items-center space-x-2 mr-[0rem] sm:mr-[4rem]">
         <Popover content={popoverContent} trigger="click">
-          <div className="w-[4rem] h-[4rem] flex items-center text-[2rem] justify-center bg-purple-400 text-white font-medium rounded-full cursor-pointer">
+        {location.pathname != '/' &&
+ location.pathname != '/register' &&
+ location.pathname != '/workshop/register' && (<div className="w-[4rem] h-[4rem] flex items-center text-[2rem] justify-center bg-purple-400 text-white font-medium rounded-full cursor-pointer">
             {currentUser ? currentUser.name[0] : "X"}
-          </div>
+          </div>)}
         </Popover>
       </div>
     </div>
