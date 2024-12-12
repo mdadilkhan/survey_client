@@ -123,16 +123,16 @@ const januaryAppointments = filterAppointmentsByMonth(allslots, "Jan");
             <div
               key={index}
               className={`p-4 sm:w-[30%] w-[45%] border rounded-xl flex flex-wrap  justify-center font-nunito sm:text-[1.4rem] text-[1.2rem] items-center group transition duration-300 ease-in-out cursor-pointer ${
-                appointment?.info === 0
+                appointment?.info == 0
                   ? "border-[#c7c7cc] text-[#c7c7cc] cursor-not-allowed"
                   : appointment?.info === 1
                   ? "border-[#e08505] text-[#e08505] hover:scale-105 hover:shadow-lg"
-                  : appointment?.info === 2
-                  ? "border-[#34c759] text-[#34c759] hover:scale-105 hover:shadow-lg"
+                  : appointment?.info === 3
+                  ? "border-[#34c759] text-[#34c759]  cursor-not-allowed"
                   : "border-transparent"
               }`}             
               onClick={() => {
-                if (appointment?.isAvailable) {
+                if (appointment?.isLocked && appointment?.info === 3) {
                   handleSelectAppointment(appointment);
                 }
               }}
@@ -156,28 +156,27 @@ const januaryAppointments = filterAppointmentsByMonth(allslots, "Jan");
         {filteredJanuaryAppointments.length > 0 ? (
           filteredJanuaryAppointments.map((appointment, index) => (
             <div
-              key={index}
-              className={`p-4 sm:w-[30%] w-[45%] border rounded-xl flex flex-wrap justify-center  font-nunito text-[3rem] items-center group transition duration-300 ease-in-out cursor-pointer ${
-                appointment?.info === 0
-                  ? "border-[#c7c7cc] text-[#c7c7cc] cursor-not-allowed"
-                  : appointment?.info === 1
-                  ? "border-[#e08505] text-[#e08505] hover:scale-105 hover:shadow-lg"
-                  : appointment?.info === 2
-                  ? "border-[#34c759] text-[#34c759] hover:scale-105 hover:shadow-lg"
-                  : "border-transparent"
-              }`}
-              
-              onClick={() => {
-                if (appointment?.isAvailable) {
-                  handleSelectAppointment(appointment);
-                }
-              }}
-            >
-              <div>
-                <p className="text-lg font-semibold">{appointment.date}</p>
-                <p className="text-sm">{appointment.time}</p>
-              </div>
+            key={index}
+            className={`p-4 sm:w-[30%] w-[45%] border rounded-xl flex flex-wrap  justify-center font-nunito sm:text-[1.4rem] text-[1.2rem] items-center group transition duration-300 ease-in-out cursor-pointer ${
+              appointment?.info == 0
+                ? "border-[#c7c7cc] text-[#c7c7cc] cursor-not-allowed"
+                : appointment?.info === 1
+                ? "border-[#e08505] text-[#e08505] hover:scale-105 hover:shadow-lg"
+                : appointment?.info === 3
+                ? "border-[#34c759] text-[#34c759] cursor-not-allowed "
+                : "border-transparent"
+            }`}             
+            onClick={() => {
+              if (appointment?.isLocked &&  appointment?.info === 3) {
+                handleSelectAppointment(appointment);
+              }
+            }}
+          >
+            <div>
+              <p className="font-semibold">{appointment.date}</p>
+              <p className="">{appointment.time}</p>
             </div>
+          </div>
           ))
         ) : (
           <p className="text-center mt-10 ml-20 text-gray-500">No appointments available</p>
