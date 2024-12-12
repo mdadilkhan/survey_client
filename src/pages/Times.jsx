@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { API_URL, filterAppointmentsByMonth } from '../constant/APIConstant';
 import axios from 'axios';
+import Lock from "../assets/Lock.svg"
 
 function FilteredModal({ isModalOpen, setIsModalOpen }) {
   const [filteredMode, setFilteredMode] = useState("offline"); // "online" or "offline"
@@ -56,16 +57,13 @@ const januaryAppointments = filterAppointmentsByMonth(allslots, "Jan");
         };
   
         // Send booking data to the server
-        const response = await axios.post(`${API_URL}/bookslot`, data);
+        // const response = await axios.post(`${API_URL}/bookslot`, data);
   
         // Navigate to the payment page if booking is successful
-        if (response?.status === 200) {
           navigate("/workshop/payment");
-        } else {
-          console.error("Failed to book the slot:", response?.data?.message);
+       
         }
-      } else {
-        // If no user ID is available, navigate to the registration page
+       else {
         setIsModalOpen(false);
         navigate("/workshop/register");
       }
@@ -128,20 +126,27 @@ const januaryAppointments = filterAppointmentsByMonth(allslots, "Jan");
                   : appointment?.info === 1
                   ? "border-[#e08505] text-[#e08505] hover:scale-105 hover:shadow-lg"
                   : appointment?.info === 3
-                  ? "border-[#34c759] text-[#34c759]  cursor-not-allowed"
+                  ? "border-[#34c759] text-[#34c759]  hover:scale-105 hover:shadow-lg"
+                  : appointment?.info === 2
+                  ? "border-[#E83F40] text-[#E83F40]  hover:scale-105 hover:shadow-lg"
                   : "border-transparent"
               }`}             
               onClick={() => {
                 {console.log(appointment?.isLocked,"asdjkflasdkjlk");
                 }
-                if (!appointment?.isLocked) {
+                if (!appointment?.isLocked &&  !appointment?.info == 0) {
                   handleSelectAppointment(appointment);
                 }
               }}
             >
-              <div>
-                <p className="font-semibold">{appointment.date}</p>
-                <p className="">{appointment.time}</p>
+              <div className='flex gap-[4rem]'>
+              <div className='flex flex-col justify-center items-center'>
+              <p className="font-semibold">{appointment.date}</p>
+              <p className="">{appointment.time}</p>
+              </div>
+              {
+                  appointment?.isLocked && <img src={Lock}/>
+                }
               </div>
             </div>
           ))
@@ -165,23 +170,30 @@ const januaryAppointments = filterAppointmentsByMonth(allslots, "Jan");
                 : appointment?.info === 1
                 ? "border-[#e08505] text-[#e08505] hover:scale-105 hover:shadow-lg"
                 : appointment?.info === 3
-                ? "border-[#34c759] text-[#34c759] cursor-not-allowed "
-                : "border-transparent"
+                ? "border-[#34c759] text-[#34c759] hover:scale-105 hover:shadow-lg"
+                : appointment?.info === 2
+                  ? "border-[#E83F40] text-[#E83F40]  hover:scale-105 hover:shadow-lg"
+                  : "border-transparent"
             }`}             
             onClick={() => {
               {console.log(appointment?.isLocked,"asdjkflasdkjlk");
               }
-              if (!appointment?.isLocked) {
+              if (!appointment?.isLocked &&  !appointment?.info == 0) {
                 {console.log(!appointment?.isLocked,"kfjadsfjdsa");
                 }
                 handleSelectAppointment(appointment);
               }
             }}
           >
-            <div>
+            <div className='flex gap-[4rem]'>
+              <div className='flex flex-col justify-center items-center'>
               <p className="font-semibold">{appointment.date}</p>
               <p className="">{appointment.time}</p>
-            </div>
+              </div>
+              {
+                  appointment?.isLocked && <img src={Lock}/>
+                }
+              </div>
           </div>
           ))
         ) : (
@@ -189,8 +201,12 @@ const januaryAppointments = filterAppointmentsByMonth(allslots, "Jan");
         )}
       </div>
     </div>
-    <div className="sm:w-[70%] w-full sm:text-[1.8rem] text-[1.2rem]  flex font-nunito justify-end gap-10 mt-[5rem]">
+    <div className="sm:w-[90%] w-full sm:text-[1.8rem] text-[1.2rem]  flex font-nunito justify-center gap-10 mt-[5rem]">
   {/* Filling Fast */}
+  <div className="flex items-center gap-2">
+    <span className="w-3 h-3 bg-[#E83F40] rounded-full"></span>
+    <p className="text-[#E83F40]">Few Slots Available</p>
+  </div>
   <div className="flex items-center gap-2">
     <span className="w-3 h-3 bg-[#e08505] rounded-full"></span>
     <p className="text-[#e08505]">Filling Fast</p>
