@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import FilteredModal from "./Times"; // Import the modal component
 import { timeAtom } from "../recoil/timeatom";
 import MoveRight from "../assets/MoveRight.svg";
+import landing from "../assets/landing.png";
 function CareerSurvey() {
   const navigate = useNavigate();
   const name = useRecoilValue(timeAtom);
@@ -16,8 +17,10 @@ function CareerSurvey() {
     <>
       <Header />
       <div className="flex flex-col justify-center items-center">
-        <div className="flex flex-col w-full sm:flex-col h-full  gap-[8rem] space-y-4 bg-[rgba(252,250,255,0.5)]">
+        <div className="flex flex-col w-full sm:flex-col h-full gap-0 sm:gap-[8rem] space-y-4 bg-[rgba(252,250,255,0.5)]">
           {/* Left Section */}
+
+         
           <div className="flex flex-col mb-6 text-center sm:text-center justify-center items-center">
             <h2 className="font-nunito text-[2.4rem] sm:text-[4rem] text-[#614298] font-bold text-wrap sm:w-[50%] mb-6">
               Psychology Pathways
@@ -26,16 +29,23 @@ function CareerSurvey() {
               Explore. Discover. Decide
             </p>
           </div>
+          <div className="w-full sm:hidden ">
+            <img
+              src={landing}
+              alt=""
+              className="bg-blue bg-opacity-0"
+            />
+          </div>
         </div>
 
-        <div className="w-[100%]">
+        <div className="w-[100%] flex justify-evenly">
           {/* left survey and registration container */}
-          <div className="w-[60%] flex flex-col pl-[8.4rem] pt-[3rem]">
+          <div className="w-full sm:w-[60%] flex flex-col p-[4rem] sm:pl-[6rem] sm:pt-[3rem]">
             <div>
-              <h5 className="text-[#6750A4] text-[2.4rem] font-bold">
+              <h5 className="text-[#6750A4] text-[1.8rem] sm:text-[2.4rem] font-bold">
                 Understanding Careers in Psychology A Comprehensive Survey
               </h5>
-              <p className="text-[#515151] font-nunito text-[1.8rem] font-normal">
+              <p className="text-[#515151] font-nunito text-[1.4rem] sm:text-[1.8rem] font-normal">
                 This survey aims to explore the diverse career opportunities
                 within the field of psychology. Whether you're a student,
                 professional, or someone considering psychology as a career
@@ -43,10 +53,10 @@ function CareerSurvey() {
                 specializations, and career growth opportunities in psychology.{" "}
               </p>
             </div>
-            <div className="flex justify-center sm:flex-row flex-col  sm:gap-[5rem] mt-[5rem] gap-[3rem] pl-7 w-full">
+            <div className="flex justify-center sm:flex-row flex-col  sm:gap-[5rem] mt-[5rem] gap-[3rem] sm:pl-7 w-full">
               {/* Survey Registration Section */}
               <div className="flex flex-col justify-center items-center sm:w-[50%] w-[95%] pl-7 h-auto space-y-5 p-4  border rounded-3xl">
-                <h2 className="font-nunito text-[2.4rem] w-[80%] text-center text-p-4">
+                <h2 className="font-nunito text-[1.7rem] sm:text-[2.4rem] w-[80%] text-center text-p-4">
                   Take the Career Survey
                 </h2>
                 <p className="w-[80%] text-center text-wrap justify-center font-nunito text-[1.2rem]">
@@ -54,7 +64,7 @@ function CareerSurvey() {
                   skills!
                 </p>
                 <button
-                  className="bg-s-1 text-p-2  font-semibold font-nunito text-[1.6rem] py-4 px-6 rounded-xl justify-center items-center sm:w-[80%] w-[80%] h-[5rem] transition duration-300 flex gap-2"
+                  className="bg-s-1 text-p-2 font-bold sm:font-semibold font-nunito text-[1.1rem] sm:text-[1.6rem] py-4 px-6 rounded-xl justify-center items-center sm:w-[80%] w-[80%] h-[5rem] transition duration-300 flex gap-2"
                   onClick={() => {
                     navigate(`/question/${1}`);
                   }}
@@ -73,7 +83,7 @@ function CareerSurvey() {
 
               {/* Workshop Registration Section */}
               <div className="flex flex-col justify-center items-center sm:w-[50%] w-[95%] pl-7 h-auto space-y-5 p-4 border rounded-3xl">
-                <h2 className="font-nunito text-[2.4rem] w-[80%] text-center text-p-4">
+                <h2 className="font-nunito text-[1.7rem] sm:text-[2.4rem] w-[80%] text-center text-p-4">
                   Register for Workshop
                 </h2>
                 <p className="w-[80%] text-center text-wrap justify-center font-nunito text-[1.2rem]">
@@ -81,7 +91,7 @@ function CareerSurvey() {
                   skills!
                 </p>
                 <button
-                  className="bg-s-1 text-p-2  font-semibold font-nunito text-[1.6rem] py-4 px-6 rounded-xl justify-center items-center sm:w-[80%] w-[80%] h-[5rem] transition duration-300 flex gap-2"
+                  className="bg-s-1 text-p-2  font-bold sm:font-semibold  font-nunito text-[1.1rem] sm:text-[1.6rem] py-4 px-6 rounded-xl justify-center items-center sm:w-[80%] w-[80%] h-[5rem] transition duration-300 flex gap-2"
                   onClick={() => setIsModalOpen(true)}
                 >
                   Register for Workshop{" "}
@@ -99,7 +109,14 @@ function CareerSurvey() {
           </div>
 
           {/* right image container  */}
-          <div className="w-[30%]"></div>
+
+          <div className="w-[35%] sm:block hidden">
+            <img
+              src={landing}
+              alt=""
+              className="bg-blue bg-opacity-0"
+            />
+          </div>
         </div>
       </div>
 
