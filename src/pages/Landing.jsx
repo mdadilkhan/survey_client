@@ -20,7 +20,6 @@ function CareerSurvey() {
         <div className="flex flex-col w-full sm:flex-col h-full gap-0 sm:gap-[8rem] space-y-4 bg-[rgba(252,250,255,0.5)]">
           {/* Left Section */}
 
-         
           <div className="flex flex-col mb-6 text-center sm:text-center justify-center items-center">
             <h2 className="font-nunito text-[2.4rem] sm:text-[4rem] text-[#614298] font-bold text-wrap sm:w-[50%] mb-6">
               Psychology Pathways
@@ -30,27 +29,23 @@ function CareerSurvey() {
             </p>
           </div>
           <div className="w-full sm:hidden ">
-            <img
-              src={landing}
-              alt=""
-              className="bg-blue bg-opacity-0"
-            />
+            <img src={landing} alt="" className="bg-blue bg-opacity-0" />
           </div>
         </div>
 
         <div className="w-[100%] flex justify-evenly">
           {/* left survey and registration container */}
-          <div className="w-full sm:w-[60%] flex flex-col p-[4rem] sm:pl-[6rem] sm:pt-[3rem]">
+          <div className="w-full sm:w-[60%] flex flex-col p-[4rem] sm:pl-[6rem] sm:pt-[3rem] font-nunito">
             <div>
-              <h5 className="text-[#6750A4] text-[1.8rem] sm:text-[2.4rem] font-bold">
-                Understanding Careers in Psychology A Comprehensive Survey
+              <h5 className="text-[#6750A4] text-[2.4rem] sm:text-[2.4rem] font-bold">
+              Understanding Careers in Psychology 
               </h5>
-              <p className="text-[#515151] font-nunito text-[1.4rem] sm:text-[1.8rem] font-normal">
-                This survey aims to explore the diverse career opportunities
-                within the field of psychology. Whether you're a student,
-                professional, or someone considering psychology as a career
-                path, this survey provides insights into various roles,
-                specializations, and career growth opportunities in psychology.{" "}
+              <p className="text-[#515151] font-nunito text-[1.4rem] sm:text-[1.8rem] mt-[1rem] sm:w-[75%] w-[90%] font-normal text-wrap ">
+                This aims to explore the diverse career opportunities within the
+                field of psychology. Whether you're a student, professional, or
+                someone considering psychology as a career path, this programme
+                provides insights into various roles, specializations, and
+                career growth opportunities in psychology. .{" "}
               </p>
             </div>
             <div className="flex justify-center sm:flex-row flex-col  sm:gap-[5rem] mt-[5rem] gap-[3rem] sm:pl-7 w-full">
@@ -111,11 +106,7 @@ function CareerSurvey() {
           {/* right image container  */}
 
           <div className="w-[35%] sm:block hidden">
-            <img
-              src={landing}
-              alt=""
-              className="bg-blue bg-opacity-0"
-            />
+            <img src={landing} alt="" className="bg-blue bg-opacity-0" />
           </div>
         </div>
       </div>

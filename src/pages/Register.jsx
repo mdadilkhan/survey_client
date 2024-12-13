@@ -71,7 +71,18 @@ const RegisterForm = () => {
      
       <Header />
       <div className="mt-[2rem]">
-      <Stepper current={0}/>
+        <div>
+          <div className="flex flex-col mb-6 text-center sm:text-center justify-center items-center">
+            <h2 className="font-nunito text-[2.4rem] sm:text-[4rem] text-[#614298] font-bold text-wrap sm:w-[50%] mb-6">
+              Psychology Pathways
+            </h2>
+            <p className="text-s-1 font-nunito w-[90%] font-medium sm:text-[2.4rem] text-[1.4rem] sm:w-[70%]">
+              Explore. Discover. Decide
+            </p>
+          </div>
+          <Stepper current={0}/>
+        </div>
+     
       </div>
       <div className="flex justify-center items-center py-10 w-full bg-[#F8F8F8]">
         <form

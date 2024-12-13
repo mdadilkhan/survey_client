@@ -104,7 +104,7 @@ function Quiz() {
     <>
       <Header />
       <div className="mt-[2rem]">
-      <Stepper current={1}/>
+      {/* <Stepper current={1}/> */}
       </div>
       <div className="flex flex-col justify-center items-center bg-[#F8F8F8] p-8 rounded-[2rem] w-[100%] mx-auto">
         <div className="flex flex-col justify-between bg-white px-[2rem] sm:px-[4rem] py-[2rem] rounded-[2rem] w-[99%] sm:w-[70%] min-h-[80vh]">
@@ -113,9 +113,14 @@ function Quiz() {
               <h2>{questionId}.</h2>
               <h2>{currentQuestion?.questionText}</h2>
             </div>
+            <div className="flex justify-between">
+            <h1 className="text-[#7D748C] text-[1.4rem] sm:text-[2rem] font-nunito mt-6">
+              Question: {`${questionId}/13`}
+            </h1>
             <p className="font-nunito text-[1.2rem] sm:text-[1.8rem] mb-[2rem] font-medium flex justify-end text-[#7D748C] capitalize">
               (Select {currentQuestion?.selectionType === "multi" ? "four options" : "one option"})
             </p>
+            </div>
           </div>
           <div
             className={`w-full flex flex-col gap-8 ${
@@ -165,9 +170,6 @@ function Quiz() {
           </div>
 
           <div className="flex justify-between mt-[3rem] items-center w-full p-[2rem]">
-            <span className="text-black text-[1.4rem] sm:text-[2rem] font-nunito">
-              Question: {`${questionId}/13`}
-            </span>
             <button
               onClick={handleNext}
               className={`px-6 py-2 text-white w-[12rem] sm:w-[23rem] h-[4rem] sm:h-[6rem] rounded-full text-[1.4rem] sm:text-[1.8rem] ${
