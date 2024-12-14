@@ -65,6 +65,7 @@ const RegisterForm = () => {
         console.error("Registration error:", err);
       });
   };
+console.log(formData);
 
   return (
     <>
@@ -143,7 +144,16 @@ const RegisterForm = () => {
               <label className="text-[2rem] font-light mb-4 font-nunito">
                 Name of the School/University*
               </label>
-              <select
+              <input
+                type="text"
+                name="school"
+                value={formData.school}
+                onChange={handleChange}
+                required
+                className="border border-br-1 p-[2rem] rounded-[10px] w-[100%] h-[6rem] text-[2rem] font-normal font-nunito"
+                placeholder="School/University"
+              />
+              {/* <select
                 name="school"
                 value={formData.school}
                 onChange={handleChange}
@@ -158,7 +168,7 @@ const RegisterForm = () => {
                     {university}
                   </option>
                 ))}
-              </select>
+              </select> */}
             </div>
 
             <div className="flex flex-col">

@@ -149,3 +149,6 @@ input[type="radio"]:checked+.checkbox-custom::after {
   }
 }
 
+.ant-steps-item-title{
+  margin: 8px 0 0 0;
+}
