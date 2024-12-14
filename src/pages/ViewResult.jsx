@@ -92,8 +92,27 @@ const ViewResult = () => {
   return (
     <>
       <Header />
+      <div className="sm:flex flex-col items-center p-4 gap-4 hidden">
+        <p className="txt-[#2F2B36] text-center font-nunito text-[1.8rem] sm:text-[3.6rem] font-bold ">
+          Registration for Workshop
+        </p>
+        <div className="px-10 mx-auto sm:w-[70%]">
+          <p className="text-[#515151] text-center font-nunito text-[1.4rem] sm:text-[1.8rem] font-semibold">
+          Thank you for completing the career survey! Your responses highlight your understanding psychology career opportunities, skills readiness, and specialization choices. To help you take the next step, we’re excited to invite you to our Career Workshop, where you’ll gain clarity on real-world opportunities, learn about career growth strategies, and explore actionable paths tailored to your interests. Don’t miss this chance to turn insights into action—register now and shape your future!
+          </p>
+        </div>
+
+
+            <button className=" bg-br-1 py-6 px-14 rounded-[50px] text-white flex justify-center items-center text-[1.4rem] font-nunito font-bold gap-2"
+            onClick={() => setIsModalOpen(true)}>
+              Register for Workshop
+              <img src={MoveRight} alt="" />
+            </button>
+      </div>
+
+      
       <div
-        className="h-[10rem] flex justify-start items-center sm:items-end pl-[2rem] sm:pl-[8rem] bg-cover bg-center"
+        className="h-[10rem] flex sm:justify-start justify-around items-center sm:items-end  sm:pl-[13rem] bg-cover bg-center"
         style={{
           backgroundImage: `url(${ResultBg})`,
           backgroundSize: "cover",
@@ -103,10 +122,15 @@ const ViewResult = () => {
         <h5 className="text-[#565857] font-nunito text-[2.4rem] sm:text-[4rem] font-semibold border-b-[5px] border-br-1">
           Result
         </h5>
+        <button className=" bg-br-1 p-4 sm:py-6 sm:px-14 rounded-[50px] text-white flex justify-center items-center text-[1rem] sm:text-[1.4rem] font-nunito font-bold gap-2 sm:hidden"
+            onClick={() => setIsModalOpen(true)}>
+              Register for Workshop
+              <img src={MoveRight} alt="" className="hidden"/>
+            </button>
       </div>
-
+      
       {/* for card */}
-      <div className="p-4 sm:p-[8rem] flex justify-evenly flex-wrap gap-6">
+      <div className="p-4 sm:p-[8rem] flex justify-center flex-wrap gap-6">
         <ResultCard
           data={{
             ...AwarenessofCareerOpportunities,
@@ -133,7 +157,7 @@ const ViewResult = () => {
         />
       </div>
 
-      <div className="flex flex-col items-center p-4 gap-4">
+      <div className="flex flex-col items-center p-4 gap-4 hidden">
         <p className="txt-[#2F2B36] text-center font-nunito text-[1.8rem] sm:text-[3.6rem] font-bold ">
           Registration for Workshop
         </p>
