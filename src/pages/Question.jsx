@@ -80,7 +80,7 @@ function Quiz() {
     // Navigate to the next question or thank you page
     if (nextQuestionId > 13) {
       // Assuming there are only 13 questions
-      navigate("/thankyou");
+      navigate("/workshop/result");
     } else {
       navigate(`/question/${nextQuestionId}`);
       setSelectedOptions([]); // Clear selected options for the next question
@@ -113,7 +113,7 @@ function Quiz() {
               <h2>{questionId}.</h2>
               <h2>{currentQuestion?.questionText}</h2>
             </div>
-            <div className="flex justify-between">
+            <div className="flex justify-between items-baseline">
             <h1 className="text-[#7D748C] text-[1.4rem] sm:text-[2rem] font-nunito mt-6">
               Question: {`${questionId}/13`}
             </h1>
@@ -169,7 +169,7 @@ function Quiz() {
             ))}
           </div>
 
-          <div className="flex justify-between mt-[3rem] items-center w-full p-[2rem]">
+          <div className="flex justify-end mt-[3rem] items-center w-full p-[2rem]">
             <button
               onClick={handleNext}
               className={`px-6 py-2 text-white w-[12rem] sm:w-[23rem] h-[4rem] sm:h-[6rem] rounded-full text-[1.4rem] sm:text-[1.8rem] ${

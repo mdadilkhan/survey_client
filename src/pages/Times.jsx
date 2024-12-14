@@ -119,6 +119,7 @@ const januaryAppointments = filterAppointmentsByMonth(allslots, "Jan");
         {filteredDecemberAppointments.length > 0 ? (
           filteredDecemberAppointments.map((appointment, index) => (
             <div
+
               key={index}
               className={`p-4 sm:w-[30%] w-[45%] border rounded-xl flex flex-wrap  justify-center font-nunito sm:text-[1.4rem] text-[1.2rem] items-center group transition duration-300 ease-in-out cursor-pointer ${
                 appointment?.info == 0

@@ -1,5 +1,8 @@
 // export const API_URL = "http://localhost:5003/api"
 export const API_URL = "https://survey.sageturtle.in/api";
+
+import Astha from '../assets/AsthaNagpal.png'
+import Sumeet from '../assets/SumeetSingh.png'
 export const getLoggedInUserDetails = () => {
   const storedData = localStorage.getItem("persist:root");
   if (storedData) {
@@ -75,3 +78,16 @@ export const UnderstandingInternshipSelectionforCareerGrowth={
       isLocked:slot?.isLocked
     }));
 };
+
+
+export const SumeetSingh={
+  img:Sumeet,
+  name:"Sumeet Singh",
+  desc:"Founder of Sage Turtle, a mental health tech startup, Sumeet has 13+ years of experience building and scaling businesses with data-driven technological innovation. He has worked with governments, Corporates and industry leaders across four countries in the edtech and mental healthtech sectors, raising $20M+ in funding and impacting more than 3 million lives. Prior to his entrepreneurial ventures, Sumeet worked as a development consultant to The World Bank and United Nations."
+}
+
+export const AsthaNagpal={
+  img:Astha,
+  name:"Astha Nagpal",
+  desc:"Founder of Daffodils Therapy Studio, Astha is a clinical psychologist with over 13 years of experience in the mental health field. Known for her expertise in psychodynamic psychotherapy, educational training and workshops, supervisions, she has worked across schools, colleges, and clinical settings delivering insightful and experiential learning. Her dedication to mental health earned her the ET Healthcare Award for excellence in clinical services"
+}
