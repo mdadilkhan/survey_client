@@ -40,10 +40,11 @@ const RazorPay = ({ currentPayementDetails }) => {
       );
   
       const { data: orderData } = orderResponse;
-  
+      // rzp_live_IIwhdZvx1c4BGz
+      // rzp_test_IqmS1BltCU4SFU
       // Razorpay options
       const options = {
-        key: "rzp_test_IqmS1BltCU4SFU",
+        key: "rzp_live_IIwhdZvx1c4BGz",
         amount: orderData.amount,
         currency: "INR",
         name: "Sage Turtle",

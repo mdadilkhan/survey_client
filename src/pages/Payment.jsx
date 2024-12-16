@@ -23,18 +23,18 @@ const PayementDetails = () => {
   };
   console.log(currentUser,"userdata with date");
   
-  const gstRate = 0.18;
+  // const gstRate = 0.18;
   const price = 250;
-  const gst = Number((price * gstRate).toFixed(2));
+  // const gst = Number((price * gstRate).toFixed(2));
   
   // Calculate initial total with two-decimal precision
-  const [total, setTotal] = useState(Number((price + gst).toFixed(2)));
+  const [total, setTotal] = useState(price);
   const [discount, setDiscount] = useState(0);
   const [coupon, setCoupon] = useState("");
   const [couponApplied, setCouponApplied] = useState(false);
   const [couponMessage, setCouponMessage] = useState("");
   
-  console.log("Initial Values:", price, gst, total);
+  console.log("Initial Values:", price, total);
   
   const applyCoupon = () => {
     axios
@@ -133,14 +133,14 @@ const PayementDetails = () => {
                     ₹{price}/-
                   </p>
                 </div>
-                <div className="flex justify-between items-center w-full">
+                {/* <div className="flex justify-between items-center w-full">
                   <p className="font-nunito text-[1.6rem] font-semibold w-[70%]">
                     GST (18%)
                   </p>
                   <p className="w-[30%] font-nunito font-normal text-[1.6rem] text-p-3">
                     ₹{gst}/-
                   </p>
-                </div>
+                </div> */}
 
                 {/* Coupon Input */}
 
