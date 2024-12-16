@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import IButton from "../assets/IButton.svg";
 import MeterBar from "./MeterBar";
+import UpArrow from "../assets/upArrow.svg"; // Replace with your up arrow SVG
+import DownArrow from "../assets/downArrow.svg"; // Replace with your down arrow SVG
+
 const ResultCard = ({ data }) => {
-  const [isOpen, setIsOpen] = useState(false); // State to manage modal visibility
+  const [isExpanded, setIsExpanded] = useState(false); // State to manage the "Read More" toggle
 
   const calculateMarkerPosition = (score) => {
     if (score <= 2.2) return `${(score - 1.2) * 33.33}%`; // Low
@@ -34,37 +36,31 @@ const ResultCard = ({ data }) => {
   };
 
   return (
-    <div className="mix-w-[55rem] w-[50rem] max-h-[27.4rem] bg-white shadow-lg rounded-[1.6rem] p-[4rem]">
+    <div className="mix-w-[55rem] w-[50rem] h-full min-h-[23rem] bg-white shadow-lg rounded-[1.6rem] p-[4rem] font-nunito">
       <div className="flex justify-between items-center mb-4 gap-6">
         <h3 className="text-[1.6rem] sm:text-[2.2rem] font-bold break-words">{data.title}</h3>
-        <button
-          className="text-gray-500 hover:text-gray-700"
-          onClick={() => setIsOpen(true)} // Open the modal on button click
-        >
-          <img src={IButton} alt="Info" />
-        </button>
       </div>
-    
-      <MeterBar value={data.score}/>
-      {/* Modal */}
-      {isOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white w-[90%] max-w-[500px] rounded-lg p-6 flex flex-col gap-4">
-            <h4 className="font-normal  mb-4 text-[1.8rem] sm:text-[2.4rem] text-center">Interpretation</h4>
-            <p className="text-gray-600  text-[1.2rem] sm:text-[1.8rem]">
+
+      <MeterBar value={data.score} />
+
+      {/* Read More Section */}
+      <div className="mt-4 w-full">
+        <button
+          className="flex items-center gap-2 text-br-1 font-semibold text-[1.4rem] hover:underline justify-between w-full font-nunito"
+          onClick={() => setIsExpanded((prev) => !prev)}
+        >
+          {isExpanded ? "Show Less" : "Read More"}
+          {isExpanded ? <img src={UpArrow} alt="" /> : <img src={DownArrow} alt="" /> }
+        </button>
+
+        {isExpanded && (
+          <div className="mt-1">
+            <p className="text-gray-600 text-[1.2rem] sm:text-[1.8rem] font-nunito">
               {getInterpretation(data.id, data.score)}
             </p>
-            <div className="mt-6 flex justify-end">
-              <button
-                onClick={() => setIsOpen(false)} // Close the modal
-                className="bg-br-1 text-white px-4 py-2 rounded-lg font-nunito hover:bg-br-1 shadow-2xl"
-              >
-                Close
-              </button>
-            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
