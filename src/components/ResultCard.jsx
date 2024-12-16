@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import MeterBar from "./MeterBar";
 import UpArrow from "../assets/upArrow.svg"; // Replace with your up arrow SVG
-import DownArrow from "../assets/downArrow.svg"; // Replace with your down arrow SVG
+import DownArrow from "../assets/DownArrow.svg"; // Replace with your down arrow SVG
 
 const ResultCard = ({ data }) => {
   const [isExpanded, setIsExpanded] = useState(false); // State to manage the "Read More" toggle
