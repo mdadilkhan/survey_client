@@ -33,12 +33,22 @@ const RegisterForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+  
+    // Restrict "phone" input to numeric values only and a maximum of 10 digits
+    if (name === "phone") {
+      if (!/^\d*$/.test(value)) return; // Allow only numbers
+      if (value.length > 10) return; // Restrict to 10 digits
+    }
+  
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
       ...(name === "course" ? { year: "" } : {}),
     }));
   };
+  
+
+  
 
   const handleSubmit = (e) => {
     console.log(formData);
