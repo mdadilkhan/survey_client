@@ -61,16 +61,22 @@ const RazorPay = ({ currentPayementDetails }) => {
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_signature: response.razorpay_signature,
             };
-  
+            
             // Verify payment
             const verificationResponse = await axios.post(
               `${API_URL}/payment/verifyOrder`,
               paymentData,
               config
             );
-  
+    
+            console.log("verification status>>",verificationResponse.status);
+            
             if (verificationResponse.status === 200) {
+              console.log("verification>>",verificationResponse.status);
               // Booking data
+
+              console.log("booking data>>",bookingData);
+              
               const bookingData = {
                 userId: currentUser.id,
                 mode: currentUser.mode,
@@ -84,7 +90,8 @@ const RazorPay = ({ currentPayementDetails }) => {
                 bookingData,
                 config
               );
-  
+              console.log("booking response",bookingResponse);
+              
               if (bookingResponse.status === 200) {
                 toast.success("Slot booked successfully!", {
                   position: "top-center",
