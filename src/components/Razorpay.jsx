@@ -10,6 +10,7 @@ import { timeAtom } from "../recoil/timeatom";
 const RazorPay = ({ currentPayementDetails }) => {
   let currentUser = useSelector((state) => state.userDetails.currentUser);
   const date = useRecoilValue(timeAtom);
+  console.log("date>>",date);
   
   currentUser = {
     ...currentUser,
