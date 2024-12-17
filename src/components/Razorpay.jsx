@@ -10,6 +10,7 @@ import { timeAtom } from "../recoil/timeatom";
 const RazorPay = ({ currentPayementDetails }) => {
   let currentUser = useSelector((state) => state.userDetails.currentUser);
   const date = useRecoilValue(timeAtom);
+  console.log("date>>",date);
   
   currentUser = {
     ...currentUser,
@@ -75,15 +76,13 @@ const RazorPay = ({ currentPayementDetails }) => {
               console.log("verification>>",verificationResponse.status);
               // Booking data
 
-              console.log("booking data>>",bookingData);
-              
               const bookingData = {
-                userId: currentUser.id,
-                mode: currentUser.mode,
-                slot: currentUser.slot,
-                date: currentUser.date,
+                userId: currentUser.id ?? "NA",
+                mode: currentUser.mode ?? "NA",
+                slot: currentUser.slot ?? "NA",
+                date: currentUser.date?? "NA",
               };
-  
+              console.log("booking data>>",bookingData);
               // Book slot
               const bookingResponse = await axios.post(
                 `${API_URL}/bookslot`,
