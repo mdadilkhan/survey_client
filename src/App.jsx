@@ -10,6 +10,7 @@ import Time from './pages/Times.jsx';
 import PayementDetails from './pages/Payment.jsx';
 import ThankyouWorkshop from './pages/ThankYouWorkshop.jsx';
 import ViewResult from './pages/ViewResult.jsx'
+import WorkShop from './pages/WorkShop.jsx';
 // ProtectedRoute component
 const ProtectedRoute = () => {
   const userDetails = useSelector((state) => state.userDetails.currentUser);
@@ -28,6 +29,7 @@ function App() {
         <Routes>
           <Route path="*" element={<Landing />} />
           <Route path="/" element={<Landing />} />
+          <Route path="/workshop" element={<WorkShop />} />
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/workshop/register" element={<RegisterForm />} />
           <Route element={<ProtectedRoute />}>

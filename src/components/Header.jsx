@@ -25,7 +25,7 @@ const Header = () => {
     <div className="flex flex-col items-center justify-start p-4 space-y-2 w-[20rem]">
       <div className="flex gap-[2rem] items-center">
    <div className="w-[4rem] h-[4rem] flex items-center text-[2rem] justify-center bg-purple-400 text-white font-medium rounded-full cursor-pointer">
-     {currentUser ? currentUser?.name[0] : "X"}
+     X
    </div>
 
       <div className="flex flex-col">
@@ -53,7 +53,7 @@ const Header = () => {
         {location.pathname != '/' &&
  location.pathname != '/register' &&
  location.pathname != '/workshop/register' && (<div className="w-[4rem] h-[4rem] flex items-center text-[2rem] justify-center bg-purple-400 text-white font-medium rounded-full cursor-pointer">
-            {currentUser ? currentUser.name[0] : "X"}
+          X
           </div>)}
         </Popover>
       </div>
