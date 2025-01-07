@@ -29,14 +29,14 @@ function App() {
         <Routes>
           <Route path="*" element={<Landing />} />
           <Route path="/" element={<Landing />} />
-          <Route path="/workshop" element={<WorkShop />} />
+          {/* <Route path="/workshop" element={<WorkShop />} /> */}
           <Route path="/register" element={<RegisterForm />} />
-          <Route path="/workshop/register" element={<RegisterForm />} />
+          {/* <Route path="/workshop/register" element={<RegisterForm />} /> */}
           <Route element={<ProtectedRoute />}>
             <Route path="/question/:questionId" element={<Quiz />} />
             <Route path="/thankyou" element={<Thankyou />} />
-            <Route path="/workshop/thankyou" element={<ThankyouWorkshop />} />
-            <Route path="/workshop/payment" element={<PayementDetails/>}/>
+            {/* <Route path="/workshop/thankyou" element={<ThankyouWorkshop />} /> */}
+            {/* <Route path="/workshop/payment" element={<PayementDetails/>}/> */}
             <Route path="/workshop/result" element={<ViewResult/>}/>
           </Route>
           

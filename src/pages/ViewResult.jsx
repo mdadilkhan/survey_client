@@ -11,10 +11,11 @@ import {
   UnderstandingInternshipSelectionforCareerGrowth,
 } from "../constant/APIConstant";
 import ResultBg from "../assets/ResultBg.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MoveRight from "../assets/MoveRight.svg";
 import FilteredModal from "./Times";
 const ViewResult = () => {
+  const navigate = useNavigate()
   const currentUser = useSelector((state) => state.userDetails.currentUser);
   const [resultData, setResultData] = useState({
     AwarenessofCareerOpportunities: null,
@@ -92,7 +93,7 @@ const ViewResult = () => {
   return (
     <>
       <Header />
-      <div className="sm:flex flex-col items-center p-4 gap-4 hidden">
+      {/* <div className="sm:flex flex-col items-center p-4 gap-4 hidden">
         <p className="txt-[#2F2B36] text-center font-nunito text-[1.8rem] sm:text-[3.6rem] font-bold ">
           Registration for Workshop
         </p>
@@ -116,7 +117,7 @@ const ViewResult = () => {
           Register for Workshop
           <img src={MoveRight} alt="" />
         </button>
-      </div>
+      </div> */}
 
       <div
         className="h-[10rem] flex  justify-start items-center sm:items-end pl-[2rem]  sm:pl-[20rem] bg-cover bg-center"
@@ -159,7 +160,7 @@ const ViewResult = () => {
         />
       </div>
 
-      <div className="flex flex-col items-center p-4 gap-4 hidden">
+      {/* <div className="flex flex-col items-center p-4 gap-4 hidden">
         <p className="txt-[#2F2B36] text-center font-nunito text-[1.8rem] sm:text-[3.6rem] font-bold ">
           Registration for Workshop
         </p>
@@ -187,6 +188,18 @@ const ViewResult = () => {
         >
           Register for Workshop
           <img src={MoveRight} alt="" className="hidden" />
+        </button>
+      </div> */}
+
+      {/* remove */}
+      
+      <div className="flex justify-center mb-10">
+      <button
+          className=" bg-br-1 py-6 px-14 rounded-[50px] text-white flex justify-center items-center text-[1.4rem] font-nunito font-bold gap-2"
+          onClick={() => navigate("/")}
+        >
+          Back to Home
+          <img src={MoveRight} alt="" />
         </button>
       </div>
 

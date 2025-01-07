@@ -54,7 +54,7 @@ function CareerSurvey() {
                3. Learn about actionable pathway aligned with your interests
               </p>
             </div>
-            <div className="flex justify-center sm:flex-row flex-col  sm:gap-[5rem] mt-[5rem] gap-[3rem] sm:pl-7 w-full">
+            <div className="flex justify-start sm:flex-row flex-col  sm:gap-[5rem] mt-[5rem] gap-[3rem] sm:pl-7 w-full">
               {/* Survey Registration Section */}
               <div className="flex flex-col justify-center items-center sm:w-[50%] w-[95%] pl-7 h-auto space-y-5 p-4  border rounded-3xl">
                 <h2 className="font-nunito text-[1.7rem] sm:text-[2.4rem] w-[80%] text-center text-p-4">
@@ -82,7 +82,7 @@ function CareerSurvey() {
               </div>
 
               {/* Workshop Registration Section */}
-              <div className="flex flex-col justify-center items-center sm:w-[50%] w-[95%] pl-7 h-auto space-y-5 p-4 border rounded-3xl">
+              {/* <div className="flex flex-col justify-center items-center sm:w-[50%] w-[95%] pl-7 h-auto space-y-5 p-4 border rounded-3xl">
                 <h2 className="font-nunito text-[1.7rem] sm:text-[2.4rem] w-[80%] text-center text-p-4">
                   Register for Workshop
                 </h2>
@@ -103,7 +103,7 @@ function CareerSurvey() {
                     }}
                   />
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
 
